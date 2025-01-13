@@ -12,7 +12,10 @@
  * @param {string} newTitle
  * @returns {Array} 새로운 todos 배열
  */
-function updateTodoTitle(todos, id, newTitle) {}
+function updateTodoTitle(todos, id, newTitle) {
+    todos.filter((a) => a.id === id).map((a)=> a.title = newTitle);
+    return todos;
+}
 
 // export 수정 불가
 export { updateTodoTitle };
