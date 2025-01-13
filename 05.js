@@ -13,7 +13,10 @@
  * @returns {string[]}
  */
 
-function filterUserTodos(userTodos, userId, priority) {}
+function filterUserTodos(userTodos, userId, priority) {
+    var title = userTodos.filter((user) => user.userId === userId && user.priority === priority && user.completed === false).map((user) => user.title);
+    return title;
+}
 
 // export 수정 불가
 export { filterUserTodos };

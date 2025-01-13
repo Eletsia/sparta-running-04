@@ -10,7 +10,20 @@
  * @param {Array} users
  * @returns {Array}
  */
-function transformUsers(users) {}
+function transformUsers(users) {
+    var modified_users = structuredClone(users);
+    modified_users.map((user) => user.isAdult = false);
+    var age = modified_users.filter((user) => user.age >= 20).map((user) => user.isAdult = true);
+    var name = modified_users.map((user)=> user.fullName = (user.firstName + " " + user.lastName));
+    modified_users.forEach((modified_users) => {if(modified_users.age && modified_users.firstName && modified_users.lastName){
+        delete modified_users.age;
+        delete modified_users.firstName;
+        delete modified_users.lastName;
+    }});
+    
+    
+    return modified_users;
+}
 
 // export 수정 불가
 export { transformUsers };
