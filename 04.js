@@ -10,7 +10,15 @@
  * @param {number} id
  * @returns {Array} 새로운 todos 배열
  */
-function deleteTodo(todos, id) {}
+function deleteTodo(todos, id) {
+    let todos2 = structuredClone(todos);
+    if(todos.filter((a) => a.id === id)){
+        todos2 = todos2.filter((a) => a.id !== id);
+        return todos2;
+    }
+    else
+        return todos;
+}
 
 // export 수정 불가
 export { deleteTodo };

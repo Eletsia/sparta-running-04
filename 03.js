@@ -13,8 +13,13 @@
  * @returns {Array} 새로운 todos 배열
  */
 function updateTodoTitle(todos, id, newTitle) {
-    todos.filter((a) => a.id === id).map((a)=> a.title = newTitle);
-    return todos;
+    let todos2 = structuredClone(todos);
+    if(todos.filter((a) => a.id === id)){
+        todos2.filter((a) => a.id === id).map((a)=> a.title = newTitle);
+        return todos2;
+    }
+    else
+        return todos;
 }
 
 // export 수정 불가
